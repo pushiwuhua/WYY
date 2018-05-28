@@ -1,0 +1,71 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="stockvm"
+            type="com.orieange.wcounter.viewModel.StockVM" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.03" />
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.97" />
+
+        <Switch
+            android:id="@+id/switch_open"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="开启悬浮窗"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/editText_code"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:hint="@string/hint_stockcode"
+            app:layout_constraintBottom_toBottomOf="@+id/button_add"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/button_add"
+            app:layout_constraintTop_toTopOf="@+id/button_add" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/button_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{stockvm.onItemAdd}"
+            android:text="添加"
+            app:layout_constraintLeft_toRightOf="@+id/editText_code"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/switch_open" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_sheet"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/guideline1"
+            app:layout_constraintRight_toRightOf="@id/guideline2"
+            app:layout_constraintTop_toBottomOf="@id/button_add" />
+
+
+    </android.support.constraint.ConstraintLayout>
+</layout>
+
+
